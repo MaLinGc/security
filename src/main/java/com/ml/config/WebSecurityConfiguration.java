@@ -30,10 +30,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         // @formatter:off
         web.ignoring()
-           .antMatchers(HttpMethod.OPTIONS,"/**")
-           .antMatchers("/static/**")
-           .antMatchers("/")
-           .antMatchers("/WEB-INF/**")
            .antMatchers("/druid/**");
         // @formatter:on
     }
@@ -54,8 +50,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .disable()
         .and()
             .authorizeRequests()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/access").permitAll()
+                .antMatchers("/","/login","/access").permitAll()
                 .anyRequest().authenticated()
         .and()
             .formLogin()

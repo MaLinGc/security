@@ -10,8 +10,10 @@ import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.context.event.ContextStoppedEvent;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 public class ApplicationEventListener implements ApplicationListener<ApplicationEvent> {
 
     @Override
